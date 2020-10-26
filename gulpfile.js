@@ -1,8 +1,12 @@
 const { src, dest, series, parallel } = require('gulp')
 const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
+const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const image = require('gulp-image');
+const imageResize = require('gulp-image-resize');
+
+sass.compiler = require('node-sass');
 
 function compileJS() {
   return src('src/*.js')
@@ -13,20 +17,31 @@ function compileJS() {
 }
 
 function compileCSS() {
-  return src('src/*.css')
+  return src('src/*.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest('dist/css'))
 }
 
 function compileImage() {
-  return src('image/*')
+  return src('image-umcompress/*')
     .pipe(image())
     .pipe(dest('dist/'))
+}
+
+function resizeImage() {
+  return src('image-umcompress/bg/*')
+    .pipe(imageResize({
+      width: 1920,
+      height: 560,
+    }))
+    .pipe(dest('dist/image/bg'))
 }
 
 // 同時做任務
 exports.default = series(compileCSS, compileJS, compileImage)
 
-// 這樣才能單獨執行某個任務 npx gulp compileCSS
+// 這樣才能單獨執行某個任務 npx gulp compileCSS resizeImage
 exports.compileCSS = compileCSS
+exports.resizeImage = resizeImage

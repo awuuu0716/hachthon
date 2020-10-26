@@ -24,6 +24,10 @@
     "gulp-uglify-es": "^2.0.0"
   },
   "devDependencies": {
-    "gulp-image": "^6.2.1"
+    "gulp-gm": "0.0.9",
+    "gulp-image": "^6.2.1",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1"
   }
 }
