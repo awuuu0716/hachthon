@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const image = require('gulp-image');
 const imageResize = require('gulp-image-resize');
+const htmlmin = require('gulp-htmlmin');
 
 sass.compiler = require('node-sass');
 
@@ -38,6 +39,12 @@ function resizeImage() {
     .pipe(dest('dist/image/bg'))
 }
 
+function compileHTML() {
+  return src('src/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(dest('dist/html'))
+}
+
 // 同時做任務
 exports.default = series(compileCSS, compileJS, compileImage)
 
@@ -45,3 +52,4 @@ exports.default = series(compileCSS, compileJS, compileImage)
 exports.compileCSS = compileCSS
 exports.resizeImage = resizeImage
 exports.compileJS = compileJS
+exports.compileHTML = compileHTML
