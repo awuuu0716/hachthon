@@ -44,3 +44,4 @@ exports.default = series(compileCSS, compileJS, compileImage)
 // 這樣才能單獨執行某個任務 npx gulp compileCSS resizeImage
 exports.compileCSS = compileCSS
 exports.resizeImage = resizeImage
+exports.compileJS = compileJS
