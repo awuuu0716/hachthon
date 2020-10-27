@@ -17,8 +17,7 @@ function compileJS() {
 }
 
 function compileCSS() {
-  return src('src/*.scss')
-    .pipe(sass().on('error', sass.logError))
+  return src('src/*.css')
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest('dist/css'))
