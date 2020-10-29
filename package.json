@@ -28,6 +28,7 @@
     "gulp-gm": "0.0.9",
     "gulp-image": "^6.2.1",
     "gulp-image-resize": "^0.13.1",
+    "gulp-purgecss": "^3.0.0",
     "gulp-sass": "^4.1.0",
     "node-sass": "^4.14.1"
   }

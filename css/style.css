@@ -194,14 +194,6 @@ ul {
   background-size: 100% auto;
 }
 
-.nav.nav-scrolled .navbar {
-  padding: 10px 15px;
-}
-
-.nav.nav-scrolled .nav__logo {
-  width: 120px;
-}
-
 /* nav - 按鈕 */
 .navbar .navbar-nav {
   width: 100%;
@@ -343,10 +335,6 @@ ul {
 }
 
 .description__title h4 span {
-  color: #FAD312;
-}
-
-.description__title .typed-cursor {
   color: #FAD312;
 }
 
@@ -730,18 +718,6 @@ ul {
   padding: 0 25px;
 }
 
-.judge .judge__nav .slick-prev {
-  left: 0;
-}
-
-.judge .judge__nav .slick-next {
-  right: 0;
-}
-
-.judge .judge__nav .slick-dots {
-  display: none !important;
-}
-
 /* nav */
 .judge__item {
   padding: 5px;
@@ -807,15 +783,6 @@ ul {
 }
 
 /* nav - center */
-.slick-center {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.slick-center .pic img {
-  -webkit-filter: none;
-          filter: none;
-}
 
 /* gallery */
 .judge__gallery {

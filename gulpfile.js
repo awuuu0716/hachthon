@@ -1,4 +1,4 @@
-const { src, dest, series, parallel } = require('gulp')
+const { src, dest, series } = require('gulp')
 const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
@@ -6,6 +6,7 @@ const cleanCSS = require('gulp-clean-css');
 const image = require('gulp-image');
 const imageResize = require('gulp-image-resize');
 const htmlmin = require('gulp-htmlmin');
+const purgecss = require('gulp-purgecss')
 
 sass.compiler = require('node-sass');
 
@@ -45,6 +46,14 @@ function compileHTML() {
     .pipe(dest('dist/html'))
 }
 
+function purgeCSS() {
+  return src('src/*.css')
+    .pipe(purgecss({
+      content: ['src/*.html']
+    }))
+    .pipe(dest('dist/css'))
+}
+
 // 同時做任務
 exports.default = series(compileCSS, compileJS, compileImage)
 
@@ -53,3 +62,4 @@ exports.compileCSS = compileCSS
 exports.resizeImage = resizeImage
 exports.compileJS = compileJS
 exports.compileHTML = compileHTML
+exports.purgeCSS = purgeCSS
