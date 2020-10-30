@@ -32,10 +32,10 @@ function compileImage() {
 }
 
 function resizeImage() {
-  return src('image-umcompress/team/*')
+  return src('image-umcompress/bg/*')
     .pipe(imageResize({
-      width: 254,
-      height: 181,
+      width: 400,
+      height: 291,
     }))
     .pipe(dest('dist/image/bg'))
 }
